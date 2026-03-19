@@ -1,59 +1,84 @@
-# ImageGallery
+# 📸 ImageGallery | Modern Angular Showcase
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.0-next.1.
+A high-performance, responsive image gallery built with **Angular 19+**. This project focuses on modern Angular patterns, including **Signals**, **Standalone Components**, and **Zoneless** change detection.
 
-## Development server
+---
 
-To start a local development server, run:
+## ✨ Key Features
 
-```bash
-ng serve
-```
+- **Signals-Driven Logic:** Leveraging the latest Angular reactivity for state management.
+- **Smart Grid Layout:** Responsive CSS Grid that adapts seamlessly from mobile to desktop.
+- **Featured Image Highlighting:** Visual emphasis on primary content through dynamic class binding and high-contrast borders.
+- **Accessibility (A11y) First:** - Optimized color contrast (WCAG 2.1 compliant).
+  - Semantic HTML with ARIA labels and roles.
+  - Screen-reader friendly descriptions for featured content.
+- **Performance:** Optimized image rendering using `object-fit: cover` to prevent distortion.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🛠️ Tech Stack & Architecture
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **Framework:** Angular 19+ (Zoneless mode)
+- **Language:** TypeScript
+- **Styling:** Modular CSS with Custom Properties (CSS Variables)
+- **Component Pattern:** Smart Parent (**Gallery**) vs. Presentational Child (**ImageItem**)
 
-```bash
-ng generate component component-name
-```
+### File Structure
+| Folder / File | Responsibility |
+| :--- | :--- |
+| `src/app/interfaces/` | Data contracts (Image interface) |
+| `src/app/components/gallery/` | Parent component: Manages the list of images and signal state |
+| `src/app/components/image-item/` | Child component: Handles rendering, `:host` styling, and A11y |
+| `src/styles.css` | Global design system, variables, and accessibility resets |
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 🚀 Getting Started
 
-## Building
+### 1. Prerequisites
+- **Node.js:** v22.22.0 or higher (required for Angular CLI 19+)
+- **Angular CLI:** `npm install -g @angular/cli`
 
-To build the project run:
 
-```bash
-ng build
-```
+### 2. Installation
+Clone the repository:
+`git clone https://github.com/your-username/image-gallery.git`
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Navigate to the project folder:
+`cd image-gallery`
 
-## Running unit tests
+Install dependencies:
+`npm install`
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+### 3. Development Server
+Run the following command for a local dev server:
+`ng serve`
 
-```bash
-ng test
-```
+Once started, navigate to `http://localhost:4200/`. The application will automatically reload if you modify any of the source files.
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## Styling Philosophy
 
-```bash
-ng e2e
-```
+The project follows a **Pragmatic & Robust Design** approach:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+* **Component Encapsulation:** Utilizing the `:host` selector to ensure component-level styles (like grid positioning) are handled correctly without leaking to the global scope.
+* **Visual Hierarchy:** To ensure a bulletproof layout, the featured image is highlighted using a high-contrast **Secondary Color border (6px)** and deep shadows instead of complex grid-spanning that might disrupt the flow on smaller screens.
+* **Responsive Consistency:** All images maintain a uniform aspect ratio using `object-fit: cover`, ensuring a professional look regardless of the source image proportions.
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Accessibility Implementation
+
+Accessibility is integrated directly into the component logic:
+
+* **Dynamic ARIA Binding:** Using `[attr.aria-label]` and `[attr.aria-describedby]` linked to Angular Signals to provide real-time context to assistive technologies.
+* **Semantic Roles:** Explicitly defined regions using `role="region"` for better navigation.
+* **Visual Accessibility:** Color schemes were tested to pass WCAG AA contrast guidelines.
+* **Hidden Metadata:** Use of the `.sr-only` utility class to provide descriptive labels that are available to screen readers but hidden from the visual UI.
+
+---
+
+##### Author Irene V. Sahun - GitHub: isahun 
+
+##### Created as part of the IT Academy Frontend BootCamp.

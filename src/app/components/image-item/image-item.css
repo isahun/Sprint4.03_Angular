@@ -30,7 +30,6 @@ img {
 }
 
 @media (min-width: 768px) {
-  /* If med-large screen, featured takes 2 cols */
   :host(.featured) {
     grid-column: span 1;
     grid-row: span 1;
