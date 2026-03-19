@@ -8,7 +8,8 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 280px;
+  position: relative;
 }
 
 img {
@@ -16,22 +17,8 @@ img {
   height: 100%;
   object-fit: cover; /* so pics don't lose shape */
   border-radius: var(--radius-md);
-  display: block;
-}
-
-/* when .featured class is active */
-:host(.featured) {
-  border-radius: var(--radius-md);
-  grid-column: span 1; /* Takes 1 by default */
 }
 
 :host(.featured) .image-container {
   border: 4px solid var(--secondary-color);
-}
-
-@media (min-width: 768px) {
-  :host(.featured) {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
 }
