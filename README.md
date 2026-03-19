@@ -1,10 +1,10 @@
-# 📸 ImageGallery | Modern Angular Showcase
+# ImageGallery | Modern Angular Showcase (Sprint 4.03)
 
 A high-performance, responsive image gallery built with **Angular 19+**. This project focuses on modern Angular patterns, including **Signals**, **Standalone Components**, and **Zoneless** change detection.
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 - **Signals-Driven Logic:** Leveraging the latest Angular reactivity for state management.
 - **Smart Grid Layout:** Responsive CSS Grid that adapts seamlessly from mobile to desktop.
@@ -16,7 +16,7 @@ A high-performance, responsive image gallery built with **Angular 19+**. This pr
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+## Tech Stack & Architecture
 
 - **Framework:** Angular 19+ (Zoneless mode)
 - **Language:** TypeScript
@@ -33,7 +33,7 @@ A high-performance, responsive image gallery built with **Angular 19+**. This pr
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Prerequisites
 - **Node.js:** v22.22.0 or higher (required for Angular CLI 19+)
