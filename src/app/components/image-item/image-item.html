@@ -1,5 +1,6 @@
 <div class="image-container" [class.featured]="isFeatured()" role="region" [attr.aria-label]="'Imatge de la galeria: ' + image().alt">
-  <img [src]="image().src" [alt]="image().alt" [attr.aria-describedby]="isFeatured() ? 'featured-desc' : null">
+  <img [ngSrc]="image().src" [alt]="image().alt" [priority]="isFeatured()" fill
+    class="my-custom-img-class" [attr.aria-describedby]="isFeatured() ? 'featured-desc' : null">
 
   @if (isFeatured()) {
     <span id="featured-desc" class="sr-only">Aquesta és la imatge destacada de la galeria</span>

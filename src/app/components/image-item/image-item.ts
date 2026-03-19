@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { Image } from '../../interfaces/image.interface';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-image-item',
   standalone: true,
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './image-item.html',
   styleUrl: './image-item.css',
   changeDetection: ChangeDetectionStrategy.OnPush, //just check if what arrives from input changes
