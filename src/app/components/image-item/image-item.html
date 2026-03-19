@@ -1,5 +1,9 @@
-<div class="image-container" [class.featured]="isFeatured()">
-  <img [src]="image().src" [alt]="image().alt">
+<div class="image-container" [class.featured]="isFeatured()" role="region" [attr.aria-label]="'Imatge de la galeria: ' + image().alt">
+  <img [src]="image().src" [alt]="image().alt" [attr.aria-describedby]="isFeatured() ? 'featured-desc' : null">
+
+  @if (isFeatured()) {
+    <span id="featured-desc" class="sr-only">Aquesta és la imatge destacada de la galeria</span>
+  }
 </div>
 
 <!-- Class binding: Angular checks whats in isFeatured(), if true, adds ".featured" class to div, if false, removes it. -->
