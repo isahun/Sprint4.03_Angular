@@ -1,0 +1,10 @@
+<div class="gallery-grid">
+  @for (img of images(); track img.id; let i = $index) {
+    
+    <app-image-item 
+      [image]="img" 
+      [isFeatured]="i === 0"> 
+    </app-image-item>
+
+  }
+</div>
