@@ -12,7 +12,7 @@ A high-performance, responsive image gallery built with **Angular 19+**. This pr
 - **Accessibility (A11y) First:** - Optimized color contrast (WCAG 2.1 compliant).
   - Semantic HTML with ARIA labels and roles.
   - Screen-reader friendly descriptions for featured content.
-- **Performance:** Optimized image rendering using `object-fit: cover` to prevent distortion.
+- **Performance:** Optimized image rendering using `object-fit: cover` to prevent distortion. Full implementation of **NgOptimizedImage** for lazy loading, layout shift prevention, and priority rendering.
 
 ---
 
