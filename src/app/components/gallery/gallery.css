@@ -2,13 +2,13 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--space-lg);
-  align-items: start;
+  align-items: start; /* prevents nearby pics from stretching */
   max-width: 1200px;
   padding-bottom: 50px;
   margin: 0 auto;
 }
 
-/* Optional: center gallery if fewer pics */
+/*to center gallery if fewer pics */
 :host {
   display: block;
 }
