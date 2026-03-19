@@ -1,1 +1,6 @@
-<p>image-item works!</p>
+<div class="image-container" [class.featured]="isFeatured()">
+  <img [src]="image().src" [alt]="image().alt">
+</div>
+
+<!-- Class binding: Angular checks whats in isFeatured(), if true, adds ".featured" class to div, if false, removes it. -->
+<!-- Since image and isFeatured are Signals, () needed to read values -->
