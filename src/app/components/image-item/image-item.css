@@ -1,24 +1,17 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .image-container {
-  background: white;
-  padding: var(--space-md);
-  border: 1px solid #ddd;
-  border-radius: var(--radius-md);
-  box-shadow: 0 4px 6px var(--shadow-color-light);
-  transition: all 0.3s ease;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  height: 280px;
+  width: 100%;
+  height: 100%;
   position: relative;
 }
 
 img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* so pics don't lose shape */
-  border-radius: var(--radius-md);
-}
-
-:host(.featured) .image-container {
-  border: 4px solid var(--secondary-color);
+  object-fit: cover; 
 }

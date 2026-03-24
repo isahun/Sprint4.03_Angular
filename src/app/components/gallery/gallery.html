@@ -1,11 +1,24 @@
-<div class="gallery-grid">
-  @for (img of images(); track img.id; let i = $index) {
-    
-    <app-image-item 
-      [image]="img" 
-      [isFeatured]="i === 0"
-      [class.featured]="i === 0">
-    </app-image-item>
+<div class="flex justify-center w-full min-h-screen p-4 bg-[#f6e7a5]">
+  <div class="w-full max-w-4xl">
+    <h1 class="text-3xl font-bold text-center mb-10 text-[#9d3b65]">La meva galeria d'imatges</h1>
 
-  }
+    <!--Parent container: GRID -->
+    <div
+      class="grid gap-6 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 auto-rows-[200px] justify-center"
+    >
+      @for (img of images(); track img.id; let i = $index) { <!-- 1.'track' gives img a DNI (img.id), so if we move 1 pic of 100 around, Angular won't have to delete&paint 100 imgs again. Only move the tracked img. 2. $index is Angular reserved word, a counter of elements, starts at 0 -->
+        <div
+          [ngClass]="{
+            'lg:col-span-2 lg:row-span-2': i === 0,
+            'col-span-1 row-span-1': i !== 0,
+          }"
+          [class.featured]="i === 0"
+          class="relative w-full h-full overflow-hidden rounded-xl shadow-lg border-2 border-gray-200 bg-white transition-all duration-300"
+        >
+          <app-image-item [image]="img" [isFeatured]="i === 0" class="block w-full h-full">
+          </app-image-item>
+        </div>
+      }
+    </div>
+  </div>
 </div>
