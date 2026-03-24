@@ -8,20 +8,17 @@ import { NgOptimizedImage } from '@angular/common';
   imports: [NgOptimizedImage],
   templateUrl: './image-item.html',
   styleUrl: './image-item.css',
-  changeDetection: ChangeDetectionStrategy.OnPush, //just check if what arrives from input changes
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImageItem {
-  //Data from img from parent component (gallery)
-  image = input.required<Image>();//if parent tries to use component without passing an img, Angular will send an error
+  image = input.required<Image>();
 
-  //Boolean to check if image is featured
   isFeatured = input<boolean>(false);
 
-  //Output property
-  deleteImage = output<string>(); //return ID of img to be deleted
+  deleteImage = output<string>();
 
   onDeleteClick(event:MouseEvent) {
-    event.stopPropagation(); //prevent click from makin parent crazy
+    event.stopPropagation(); 
     this.deleteImage.emit(this.image().id);
   }
 }

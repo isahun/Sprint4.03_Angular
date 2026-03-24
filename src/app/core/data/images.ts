@@ -1,6 +1,5 @@
 import { Image } from './../../interfaces/image.interface';
 
- //create signal with img array. Format: signal<dataType>(InitialValue)
   export const images: Image[] = [
     {
       id: '1',
