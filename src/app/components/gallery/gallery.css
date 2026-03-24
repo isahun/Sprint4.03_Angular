@@ -5,7 +5,28 @@
 .grid > article.featured {
   border-color: #9d3b65;
   border-width: 4px;
-  box-shadow: 0 10px 15px -3px rgba(157, 59, 101, 0.3), 0 4px 6px -2px rgba(157, 59, 101, 0.2); 
+  box-shadow: 0 10px 15px -3px rgba(157, 59, 101, 0.3), 0 4px 6px -2px rgba(157, 59, 101, 0.2);
   transform: scale(1.02);
   z-index: 10;
+}
+.cdk-drag-preview {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  opacity: 0.9;
+  z-index: 1000;
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.3;
+  background-color: #9d3b6533;
+  border: 2px dashed #9d3b65;
+  border-radius: 12px;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
