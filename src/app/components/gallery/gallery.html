@@ -11,13 +11,13 @@
             'lg:col-span-2 lg:row-span-2': i === 0,
             'col-span-1 row-span-1': i !== 0,
           }"
-          [class.featured]="i === 0"
+          [class.featured]="img.id === featuredImageID()"
           class="relative w-full h-full overflow-hidden rounded-xl shadow-lg border-2 border-gray-200 bg-white transition-all duration-300 cursor-move"
           cdkDrag
 
           >
           <app-image-item [image]="img"
-          [isFeatured]="i === 0"
+          [isFeatured]="img.id === featuredImageID()"
           (deleteImage)="removeImage($event)"
           class="block w-full h-full">
           </app-image-item>
