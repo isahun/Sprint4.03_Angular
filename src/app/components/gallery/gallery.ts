@@ -5,10 +5,17 @@ import { CommonModule } from '@angular/common';
 import { ImageModule } from 'primeng/image';
 import { ButtonModule } from 'primeng/button';
 import { images } from '../../core/data/images';
+import {
+  CdkDrag,
+  CdkDropList,
+  moveItemInArray,
+  CdkDragDrop
+} from '@angular/cdk/drag-drop';
+
 @Component({
   selector: 'app-gallery',
   standalone: true,
-  imports: [ImageItem, CommonModule, ButtonModule, ImageModule],
+  imports: [ImageItem, CommonModule, ButtonModule, ImageModule, CdkDrag, CdkDropList],
   templateUrl: './gallery.html',
   styleUrl: './gallery.css',
 })
@@ -25,4 +32,16 @@ export class Gallery {
         prevImages.filter(img => img.id !== id));
     }
   }
-}
+
+  drop(event: CdkDragDrop<Image[]>) {
+    this.images.update(currentImages => {
+      moveItemInArray(currentImages, event.previousIndex, event.currentIndex);
+      return [...currentImages]; // Retorna una nueva referencia per a la detecció de canvis
+    });
+
+    this.featuredImageID.set(this.images()[0]?.id || '')
+
+    }
+
+  }
+

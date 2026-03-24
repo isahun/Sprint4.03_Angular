@@ -2,7 +2,7 @@
   <div class="w-full max-w-4xl">
     <h1 class="text-3xl font-bold text-center mb-10 text-[#9d3b65]">La meva galeria d'imatges</h1>
 
-    <section aria-label="Quadrícula de fotografies"
+    <section cdkDropList (cdkDropListDropped)="drop($event)" aria-label="Quadrícula de fotografies"
       class="grid gap-6 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 auto-rows-[200px] justify-center"
     >
       @for (img of images(); track img.id; let i = $index) {
@@ -12,8 +12,10 @@
             'col-span-1 row-span-1': i !== 0,
           }"
           [class.featured]="i === 0"
-          class="relative w-full h-full overflow-hidden rounded-xl shadow-lg border-2 border-gray-200 bg-white transition-all duration-300"
-        >
+          class="relative w-full h-full overflow-hidden rounded-xl shadow-lg border-2 border-gray-200 bg-white transition-all duration-300 cursor-move"
+          cdkDrag
+
+          >
           <app-image-item [image]="img"
           [isFeatured]="i === 0"
           (deleteImage)="removeImage($event)"
