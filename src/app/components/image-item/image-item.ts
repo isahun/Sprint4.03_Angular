@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { Image } from '../../interfaces/image.interface';
 import { NgOptimizedImage } from '@angular/common';
 
@@ -16,4 +16,12 @@ export class ImageItem {
 
   //Boolean to check if image is featured
   isFeatured = input<boolean>(false);
+
+  //Output property
+  deleteImage = output<string>(); //return ID of img to be deleted
+
+  onDeleteClick(event:MouseEvent) {
+    event.stopPropagation(); //prevent click from makin parent crazy
+    this.deleteImage.emit(this.image().id);
+  }
 }

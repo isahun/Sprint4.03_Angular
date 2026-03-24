@@ -4,7 +4,7 @@ import { ImageItem } from '../image-item/image-item';
 import { CommonModule } from '@angular/common';
 import { ImageModule } from 'primeng/image';//in case we want to use the PrimeNG img component
 import { ButtonModule } from 'primeng/button';
-
+import { images } from '../../core/data/images';
 @Component({
   selector: 'app-gallery',
   standalone: true,
@@ -14,31 +14,17 @@ import { ButtonModule } from 'primeng/button';
 })
 export class Gallery {
   //create signal with img array. Format: signal<dataType>(InitialValue)
-  readonly images = signal<Image[]>([
-    {
-      id: '1',
-      src: 'https://picsum.photos/id/10/600/400',
-      alt: 'A landscape with trees in the foreground and mountains with a lake in the background.'
-    },
-    {
-      id: '2',
-      src: 'https://picsum.photos/id/17/600/400',
-      alt: 'A path between grass fields and several trees at the end of the path.'
-    },
-    {
-      id: '3',
-      src: 'https://picsum.photos/id/25/600/400',
-      alt: 'Branches silhouettes and the sunlight behind them.'
-    },
-    {
-      id: '4',
-      src: 'https://picsum.photos/id/49/600/400',
-      alt: 'Round White mediterranean buildings'
-    },
-    {
-      id: '5',
-      src: 'https://picsum.photos/id/57/367/267',
-      alt: 'Street from NYC'
+  images = signal<Image[]>(images);
+
+  featuredImageID = signal<string>(this.images()[0]?.id || ''); //to keep featured img
+
+  removeImage(id:string) {
+    const confirmation = window.confirm("Segur que vols esborrar aquesta imatge?");
+
+    if (confirmation) {
+      //.update takes current img list and returns a new one filtered
+      this.images.update(prevImages =>
+        prevImages.filter(img => img.id !== id));
     }
-  ]);
+  }
 }
