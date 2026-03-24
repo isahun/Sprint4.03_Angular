@@ -2,10 +2,11 @@
   <div class="w-full max-w-4xl">
     <h1 class="text-3xl font-bold text-center mb-10 text-[#9d3b65]">La meva galeria d'imatges</h1>
 
+    <!--Parent container: GRID -->
     <div
       class="grid gap-6 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 auto-rows-[200px] justify-center"
     >
-      @for (img of images(); track img.id; let i = $index) {
+      @for (img of images(); track img.id; let i = $index) { <!-- 1.'track' gives img a DNI (img.id), so if we move 1 pic of 100 around, Angular won't have to delete&paint 100 imgs again. Only move the tracked img. 2. $index is Angular reserved word, a counter of elements, starts at 0 -->
         <div
           [ngClass]="{
             'lg:col-span-2 lg:row-span-2': i === 0,
