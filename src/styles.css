@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Tangerine:wght@700&display=swap');
 @import "tailwindcss";
 @import "tailwindcss-primeui";
 
@@ -5,25 +6,24 @@
 /* 1. RESET & VARIABLES */
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    margin: 0;;
   }
 
 :root {
-  --primary-color: #f6e7a5;
+  --primary-color: #f2f3b0;
   --secondary-color: #9d3b65;
-  --text-main: #9d3b65;
   --shadow-color-light: #00000033;
   --space-md: 0.625rem;
   --space-lg: 1.25rem;
-  --fs-h1: clamp(1.8rem, 5vw, 2.5rem);
   --fs-body: 1rem;
   --radius-md: 1rem;
+  --font-header: 'Pinyon Script';
+  --font-body: 'Segoe UI', sans-serif;
 }
 
 /* 2. BASE STYLES */
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
   background-color: var(--primary-color);
   color: var(--text-main);
   line-height: 1.6;
@@ -34,12 +34,11 @@ body {
 /* 3. GLOBAL h1 */
 h1 {
     text-align: center;
-    font-size: var(--fs-h1);
-    margin-bottom: var(--space-lg);
+    font-family: var(--font-header);
+    font-size: 4rem;
     font-weight: 900;
     letter-spacing: 0.025em;
-    color: var(--text-main);
-    text-shadow: 2px 2px 0px var(--shadow-color-light);
+    color: var(--secondary-color);
 }
 
 /* 4. ACCESSIBILITY */
