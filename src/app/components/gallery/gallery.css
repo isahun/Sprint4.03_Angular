@@ -1,8 +1,33 @@
-.grid > section {
+
+.btn-reflectant {
+  position: relative;
+  overflow: hidden; /* Vital: perquè el reflex no surti del botó */
+}
+
+.btn-reflectant::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.4); /* El color del reflex */
+  transform: rotate(30deg);
+  transition: all 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Quan passem el ratolí, el reflex creua tot el botó */
+.btn-reflectant:hover::after {
+  left: 120%;
+}
+
+
+
+.grid > ul {
   transition: all 0.3s ease;
 }
 
-.grid > article.featured {
+.grid > li.featured {
   border-color: #9d3b65;
   border-width: 4px;
   box-shadow: 0 10px 15px -3px rgba(157, 59, 101, 0.3), 0 4px 6px -2px rgba(157, 59, 101, 0.2);

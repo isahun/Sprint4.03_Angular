@@ -1,8 +1,11 @@
 <figure
-  class="image-container group relative w-full h-full"
+  (click)="onImageClick()"
+  class="image-container group relative w-full h-full overflow-hidden rounded-xl transition-all cursor-pointer"
+  [class.selected-border]="isSelected()"
   [class.featured]="isFeatured()"
   role="region"
   [attr.aria-label]="'Imatge de la galeria: ' + image().alt"
+  [attr.aria-selected]="isSelected()"
 >
   <img
     [ngSrc]="image().src"
@@ -13,8 +16,26 @@
     [attr.aria-describedby]="isFeatured() ? 'featured-desc' : null"
   />
 
+  @if (isSelected()) {
+    <div class="absolute top-2 left-2 bg-blue-500 text-white p-1 rounded-full shadow-lg z-30">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+          clip-rule="evenodd"
+        />
+      </svg>
+    </div>
+  }
+
   <button
     (click)="onDeleteClick($event)"
+    title="Esborrar aquesta imatge"
     type="button"
     class="absolute top-2 right-2 bg-red-600 hover:bg-red-700 text-white p-2 rounded-full shadow-lg transition-opacity opacity-0 group-hover:opacity-100 z-20"
   >
@@ -29,6 +50,8 @@
   </button>
 
   @if (isFeatured()) {
-    <figcaption id="featured-desc" class="sr-only">Aquesta és la imatge destacada de la galeria</figcaption>
+    <figcaption id="featured-desc" class="sr-only">
+      Aquesta és la imatge destacada de la galeria
+    </figcaption>
   }
 </figure>
