@@ -17,8 +17,15 @@ export class ImageItem {
 
   deleteImage = output<string>();
 
-  onDeleteClick(event:MouseEvent) {
-    event.stopPropagation(); 
+  isSelected = input(false);
+
+  selectImage = output<string>();
+
+  onImageClick() {
+    this.selectImage.emit(this.image().id);
+  }
+  onDeleteClick(event: MouseEvent) {
+    event.stopPropagation();
     this.deleteImage.emit(this.image().id);
   }
 }

@@ -8,11 +8,30 @@
   width: 100%;
   height: 100%;
   position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.featured {
+  outline: 4px solid #9d3b65;
+  box-shadow: 0 10px 20px rgba(157, 59, 101, 0.3);
+  z-index: 10;
 }
 
+.featured img {
+  filter: saturate(1.2);
+}
+
+.selected-border {
+  outline: none;
+  filter: brightness(0.85);
+  transform: scale(0.98);
+}
+
+.selected-border {
+  /* Treiem l'outline o el posem molt subtil */
+  outline: none;
+  /* Si vols un efecte visual, podem fer la foto una mica més petita o més fosca per diferenciar-la */
+  filter: brightness(0.85);
+  transform: scale(0.98);
+}
