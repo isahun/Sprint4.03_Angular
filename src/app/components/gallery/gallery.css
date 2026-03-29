@@ -1,7 +1,8 @@
 
+/* REFLECTION EFFECT ON BUTTONS */
 .btn-reflectant {
   position: relative;
-  overflow: hidden; /* Vital: perquè el reflex no surti del botó */
+  overflow: hidden;
 }
 
 .btn-reflectant::after {
@@ -11,18 +12,16 @@
   left: -60%;
   width: 20%;
   height: 200%;
-  background: rgba(255, 255, 255, 0.4); /* El color del reflex */
+  background: rgba(255, 255, 255, 0.4);
   transform: rotate(30deg);
   transition: all 0.9s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* Quan passem el ratolí, el reflex creua tot el botó */
 .btn-reflectant:hover::after {
   left: 120%;
 }
 
-
-
+/* GRID & DRAG AND DROP STYLE*/
 .grid > ul {
   transition: all 0.3s ease;
 }

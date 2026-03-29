@@ -29,9 +29,7 @@
 }
 
 .selected-border {
-  /* Treiem l'outline o el posem molt subtil */
   outline: none;
-  /* Si vols un efecte visual, podem fer la foto una mica més petita o més fosca per diferenciar-la */
   filter: brightness(0.85);
   transform: scale(0.98);
 }
