@@ -19,6 +19,9 @@ export class Gallery {
 
   featuredImageID = signal<string>(this.images()[0]?.id || '');
 
+  // Aquí la llista de seleccionats:
+  selectedImageIds = signal<Set<string>>(new Set());
+
   removeImage(id: string) {
     const confirmation = window.confirm('Segur que vols esborrar aquesta imatge?');
 
@@ -34,5 +37,47 @@ export class Gallery {
     });
 
     this.featuredImageID.set(this.images()[0]?.id || '');
+  }
+
+  toggleSelection(id: string) {
+    // 1. Demanem a la Signal que s'actualitzi
+    this.selectedImageIds.update((currentIds) => {
+      // 2. Creem una COPIA del Set actual (perquè Angular s'assabenti del canvi)
+      const newSet = new Set(currentIds); //nova referencia x reactivitat
+      // 3. LA LÒGICA DE L'INTERRUPTOR:
+      if (newSet.has(id)) {
+        // Si l'ID ja estava a la llista, l'esborrem (deseleccionem)
+        newSet.delete(id);
+      } else {
+        // Si l'ID no hi era, l'afegim (seleccionem)
+        newSet.add(id);
+      }
+      // 4. Retornem el nou Set per guardar-lo a la Signal
+      return newSet;
+    });
+  }
+
+  toggleAll() {
+    // Si ja les tenim totes seleccionades, les buidem (Deselect All)
+    if (this.selectedImageIds().size === this.images().length) {
+      this.selectedImageIds.set(new Set());
+    }
+    // Si no, les fiquem totes (Select All)
+    else {
+      const allIds = this.images().map((img) => img.id);
+      this.selectedImageIds.set(new Set(allIds));
+    }
+  }
+
+  deleteSelected() {
+    const totalSelected = this.selectedImageIds().size;
+    if (confirm(`Segur que vols esborrar aquestes ${totalSelected} imatges?`)) {
+      // Filtrem les imatges que NO estan seleccionades
+      this.images.update((prev) => prev.filter((img) => !this.selectedImageIds().has(img.id)));
+      // Resetejem la selecció
+      this.selectedImageIds.set(new Set());
+      // Mantenim la coherència de la destacada
+      this.featuredImageID.set(this.images()[0]?.id || '');
+    }
   }
 }
