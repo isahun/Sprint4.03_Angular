@@ -10,9 +10,11 @@ A high-performance, responsive image gallery built with **Angular 19+**. This pr
 - **Smart Grid Layout:** Responsive CSS Grid that adapts seamlessly from mobile to desktop.
 - **Featured Image Highlighting:** Visual emphasis on primary content through dynamic class binding and high-contrast borders.
 - **Interactive Drag and Drop:** Integrated **Angular CDK** to allow users to reorder the gallery intuitively with smooth animations.
-- **Advanced Selection & Mass Actions:** - Bulk select/deselect functionality with real-time counter.
+- **Advanced Selection & Mass Actions:**  
+  - Bulk select/deselect functionality with real-time counter.  
   - Individual and mass deletion with automatic state synchronization.
-- **Accessibility (A11y) First:** - Optimized color contrast (WCAG 2.1 compliant).
+- **Accessibility (A11y) First:**  
+  - Optimized color contrast (WCAG 2.1 compliant).  
   - Semantic HTML with ARIA labels and roles.
   - Screen-reader friendly descriptions for featured content and selection states.
 - **Performance:** Optimized image rendering using `object-fit: cover` to prevent distortion. Full implementation of **NgOptimizedImage** for lazy loading, layout shift prevention, and priority rendering.
