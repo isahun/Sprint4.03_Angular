@@ -23,10 +23,25 @@ export class Gallery {
   selectedImageIds = signal<Set<string>>(new Set());
 
   removeImage(id: string) {
+    // 1. Primer la treiem de la llista de fotos (el que ja tenies)
     const confirmation = window.confirm('Segur que vols esborrar aquesta imatge?');
 
     if (confirmation) {
       this.images.update((prevImages) => prevImages.filter((img) => img.id !== id));
+    }
+
+    // 2. ARA LA CLAU: També la treiem del Set de seleccionades
+    // Si la ID existeix al Set, la borrem perquè el comptador baixi
+    this.selectedImageIds.update((prevImages) => {
+      const newSet = new Set(prevImages); // Creem una còpia per mantenir la immutabilitat
+      newSet.delete(id); // Intentem borrar la ID
+      return newSet; // Retornem el Set actualitzat
+    });
+
+    // 3. (Opcional) Si la imatge que hem esborrat era la destacada,
+    // n'assignem una de nova perquè no es quedi buit
+    if (this.featuredImageID() === id) {
+      this.featuredImageID.set(this.images()[0]?.id || '');
     }
   }
 
