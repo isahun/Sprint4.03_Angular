@@ -14,12 +14,10 @@ export class ImageItem {
   image = input.required<Image>();
 
   isFeatured = input<boolean>(false);
-
-  deleteImage = output<string>();
-
   isSelected = input(false);
 
   selectImage = output<string>();
+  deleteImage = output<string>();
 
   onImageClick() {
     this.selectImage.emit(this.image().id);
