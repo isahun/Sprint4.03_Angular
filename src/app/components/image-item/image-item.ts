@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal, input, output } from '@angular/core';
 import { Image } from '../../interfaces/image.interface';
 import { NgOptimizedImage } from '@angular/common';
 
@@ -18,6 +18,8 @@ export class ImageItem {
 
   selectImage = output<string>();
   deleteImage = output<string>();
+
+  isHovering = signal(false);
 
   onImageClick() {
     this.selectImage.emit(this.image().id);
