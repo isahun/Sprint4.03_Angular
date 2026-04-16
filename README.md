@@ -88,6 +88,21 @@ Accessibility is integrated directly into the component logic:
 
 ---
 
+---
+
+## Refactoring Notes
+
+### Sprint 5 — Exercise 5.07 (2026-04-16)
+
+As part of Sprint 5's component testing and optimization exercise, `ImageItemComponent` was refactored:
+
+- Added `isHovering = signal(false)` as local state using Angular Signals.
+- Replaced CSS `group-hover` Tailwind trick with signal-driven `@if (isHovering())` block for the delete overlay.
+- Added `(mouseenter)` / `(mouseleave)` bindings on `<figure>` to update the signal.
+- Confirmed `ChangeDetectionStrategy.OnPush` is set on the component decorator.
+
+---
+
 ##### Author Irene V. Sahun - GitHub: isahun 
 
 ##### Created as part of the IT Academy Frontend BootCamp.
